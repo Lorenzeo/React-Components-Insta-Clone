@@ -22,9 +22,10 @@ const App = () => {
   // To make the search bar work (which is stretch) we'd need another state to hold the search term.
 
   const likePost = postId => {
+
     const updatePost = posts.map(post => {
       if (post.id === postId){
-        return setPosts(posts + 1)
+        return { ...post, likes: post.likes + 1}
       } else {
         return post
       }
@@ -47,7 +48,7 @@ const App = () => {
   return (
     <div className='App'>
       {/* Add SearchBar and Posts here to render them */}
-      <SearchBar SearchBar={SearchBar} />
+      <SearchBar  />
       {/* Check the implementation of each component, to see what props they require, if any! */}
       <Posts  posts={posts} likePost={likePost}  />
     </div>
